@@ -1,0 +1,282 @@
+﻿<UserControl x:Class="FinanceManagementProject.View.FirstIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             
+             xmlns:local="clr-namespace:FinanceManagementProject.View"
+             mc:Ignorable="d" 
+             MinHeight="450" MinWidth="800" Background="AliceBlue" xmlns:Helper="clr-namespace:FinanceManagementProject.Helper" Helper:FirstIconBehaviors.SumOfEmployeeExpenseMetodName="SumOfExpense">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <Ellipse Margin="20">
+                <Ellipse.Fill >
+                    <ImageBrush ImageSource="{Binding User.Image,TargetNullValue='/BackgroundImages/Users.png'}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button Content="+" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="2"></Button>
+
+
+
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" VerticalAlignment="Bottom" Margin="5" Command="{Binding ExitBtnClick}">Exit</Button>
+            <TextBlock Text="{Binding User.FullName,TargetNullValue='Full name',FallbackValue='Full name',Mode=OneWay}" TextWrapping="Wrap" FontSize="13" ></TextBlock>
+            </Grid>
+          
+
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0" >
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Text="{Binding User.Companies[0].Name}" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+                <Grid Background="#42f5bc" Grid.Column="0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock   FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Income"></TextBlock>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="15" Text="{Binding SumOfIncome}"></TextBlock>
+
+                    </Grid>
+
+                    <Button Grid.Column="2" Content=">" HorizontalAlignment="Right" Margin="10"  VerticalAlignment="Center" Background="#3d5a80" Command="{Binding IncomeBtnClick}"></Button>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="5*"></RowDefinition>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Text="Description : " Grid.Row="0"></TextBlock>
+                    <TextBlock Text="{Binding User.Companies[0].Description}" Grid.Row="1" Margin="5" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Name="BudjetTxtBlck" Grid.Row="2" Margin="5" Text="{Binding SumOfAll}" TextWrapping="Wrap"></TextBlock>
+             
+                
+                </Grid>
+               
+
+
+            </Grid>
+                <Border Grid.Row="1" BorderThickness="2" BorderBrush="Aqua"></Border>
+
+
+            <wpf:PieChart Grid.Row="1" Name="pieChart" Series="{Binding seriesCollection}" LegendLocation="Left" InnerRadius="20">
+                <wpf:PieChart.ChartLegend>
+                    <wpf:DefaultLegend BulletSize="20" HorizontalAlignment="Left"></wpf:DefaultLegend>
+                </wpf:PieChart.ChartLegend>
+            </wpf:PieChart>
+
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+
+
+
+                <Grid Background="#98c1d9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock   FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Employee"></TextBlock>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="Outcome : " Grid.Row="1" VerticalAlignment="Top"></TextBlock>
+
+
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="15" Text="{Binding SumOfEmployeeExpence}"></TextBlock>
+
+                    </Grid>
+
+                    <Button Grid.Column="2" Content=">" HorizontalAlignment="Right" Margin="10"  VerticalAlignment="Center" Background="#3d5a80" Command="{Binding EmployeeBtnClick}"></Button>
+                </Grid>
+
+
+
+
+
+
+
+                <Grid Grid.Column="1" Background="#ECA400">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Tax"></TextBlock>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="Outcome : " Grid.Row="1" VerticalAlignment="Top"></TextBlock>
+
+
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="15" Text="{Binding SumOfTaxExpence}"></TextBlock>
+
+                    </Grid>
+
+                    <Button Command="{Binding TaxBtnClick}" Grid.Column="2" Content=">" Background="#ffc300" HorizontalAlignment="Right" Margin="10"  VerticalAlignment="Center"></Button>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="1" Background="#72efdd">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Others"></TextBlock>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="Outcome : " Grid.Row="1" VerticalAlignment="Top"></TextBlock>
+
+
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="15" Text="{Binding SumOfOthers}"></TextBlock>
+
+                    </Grid>
+
+                    <Button Grid.Column="1" Content=">" Background="DarkCyan" Margin="36,0,10,0"  VerticalAlignment="Center" Command="{Binding OtherBtnClick}"/>
+
+                </Grid>
+
+                <Grid Grid.Row="1" Background="#e5383b">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Communal"></TextBlock>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="4*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="Outcome : " Grid.Row="1" VerticalAlignment="Top"></TextBlock>
+
+
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="15" Text="{Binding SumOfCommunalExpencies}"></TextBlock>
+
+                    </Grid>
+
+                    <Button Command="{Binding CommunalBtnClick}" Grid.Column="2" Background="#590d22" Content=">"  HorizontalAlignment="Right" Margin="10"  VerticalAlignment="Center"></Button>
+
+
+
+
+
+                </Grid>
+            </Grid>
+
+
+
+
+
+
+
+
+
+
+            <!--<Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <local:AddObject NameOf="Employee" Outcome="{Binding SumOfEmployeeExpence}"></local:AddObject>
+                <local:AddObject Grid.Row="1"></local:AddObject>
+                <local:AddObject Grid.Column="1"></local:AddObject>
+                <local:AddObject Grid.Column="1" Grid.Row="1"></local:AddObject>
+
+
+            </Grid>-->
+
+
+
+        </Grid>
+    </Grid>
+</UserControl>

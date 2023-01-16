@@ -1,0 +1,69 @@
+﻿<Window x:Class="FinanceManagementProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:FinanceManagementProject.ViewModel"
+        xmlns:view="clr-namespace:FinanceManagementProject.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:FinanceManagementProject"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" MaxHeight="500" MaxWidth="850" MinHeight="500" MinWidth="850">
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type viewModels:MainWindowMolel}">
+            <view:LogIn/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:FirstIconVM}">
+            <view:FirstIcon/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:EmployeeVM}">
+            <view:InformationAbout/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:TaxVM}">
+            <view:YourTax/>
+        </DataTemplate> 
+        
+        <DataTemplate DataType="{x:Type viewModels:ComunalVM}">
+            <view:Communal/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:OtherView}">
+            <view:OtherView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:AddComunalVM}">
+            <view:AddComunal></view:AddComunal>
+        </DataTemplate>
+         
+        <DataTemplate DataType="{x:Type viewModels:AddEmployeeVM}">
+            <view:AddEmployee></view:AddEmployee>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:AddOtherVM}">
+            <view:AddOther></view:AddOther>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModels:AddTaxVM}">
+            <view:AddTax></view:AddTax>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:IncomeVM}">
+            <view:IncomeView></view:IncomeView>
+
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:AddIncomeVM}">
+            <view:AddIncome></view:AddIncome>            
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <ContentControl Content="{Binding CurrentVM}"/>
+    </Grid>
+    
+</Window>

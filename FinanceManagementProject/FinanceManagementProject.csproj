@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appSettings.json" />
+    <None Remove="BackgroundImages\Cafe.jpeg" />
+    <None Remove="BackgroundImages\Cafes.jpeg" />
+    <None Remove="BackgroundImages\Communal.png" />
+    <None Remove="BackgroundImages\Employee1.png" />
+    <None Remove="BackgroundImages\Employee2.png" />
+    <None Remove="BackgroundImages\FullCafe.jpg" />
+    <None Remove="BackgroundImages\Good.jpg" />
+    <None Remove="BackgroundImages\Good1.jpg" />
+    <None Remove="BackgroundImages\IconOfPay.png" />
+    <None Remove="BackgroundImages\Income.png" />
+    <None Remove="BackgroundImages\Pass.png" />
+    <None Remove="BackgroundImages\Poor1.jpeg" />
+    <None Remove="BackgroundImages\Poor3.jpg" />
+    <None Remove="BackgroundImages\PoorGuy.jpg" />
+    <None Remove="BackgroundImages\Relax.jpg" />
+    <None Remove="BackgroundImages\Rich1.jpg" />
+    <None Remove="BackgroundImages\Rich2.jpg" />
+    <None Remove="BackgroundImages\Rich3.jpg" />
+    <None Remove="BackgroundImages\Svedaniya.jpg" />
+    <None Remove="BackgroundImages\Tax.png" />
+    <None Remove="BackgroundImages\Tax1.jpg" />
+    <None Remove="BackgroundImages\Taxes1.jpg" />
+    <None Remove="BackgroundImages\taxor.jpg" />
+    <None Remove="BackgroundImages\User.png" />
+    <None Remove="BackgroundImages\Users.png" />
+    <None Remove="BackgroundImages\Zaur.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Azure.Amqp" Version="2.4.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="NPOI" Version="2.5.3" />
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+    <PackageReference Include="SimpleInjector" Version="5.3.2" />
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="appSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="BackgroundImages\Cafes.jpeg" />
+    <Resource Include="BackgroundImages\Communal.png" />
+    <Resource Include="BackgroundImages\Employee1.png" />
+    <Resource Include="BackgroundImages\Employee2.png" />
+    <Resource Include="BackgroundImages\FullCafe.jpg" />
+    <Resource Include="BackgroundImages\Good.jpg" />
+    <Resource Include="BackgroundImages\Good1.jpg" />
+    <Resource Include="BackgroundImages\IconOfPay.png" />
+    <Resource Include="BackgroundImages\Income.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="BackgroundImages\Pass.png" />
+    <Resource Include="BackgroundImages\Poor1.jpeg" />
+    <Resource Include="BackgroundImages\Poor3.jpg" />
+    <Resource Include="BackgroundImages\PoorGuy.jpg" />
+    <Resource Include="BackgroundImages\Relax.jpg" />
+    <Resource Include="BackgroundImages\Rich1.jpg" />
+    <Resource Include="BackgroundImages\Rich2.jpg" />
+    <Resource Include="BackgroundImages\Rich3.jpg" />
+    <Resource Include="BackgroundImages\Svedaniya.jpg" />
+    <Resource Include="BackgroundImages\Tax.png" />
+    <Resource Include="BackgroundImages\Tax1.jpg" />
+    <Resource Include="BackgroundImages\Taxes1.jpg" />
+    <Resource Include="BackgroundImages\taxor.jpg" />
+    <Resource Include="BackgroundImages\User.png" />
+    <Resource Include="BackgroundImages\Users.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="BackgroundImages\Zaur.jpg" />
+  </ItemGroup>
+</Project>

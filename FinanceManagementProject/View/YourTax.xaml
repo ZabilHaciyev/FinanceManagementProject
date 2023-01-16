@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="FinanceManagementProject.View.YourTax"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FinanceManagementProject.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="BlanchedAlmond"  xmlns:helper="clr-namespace:FinanceManagementProject.Helper" helper:LoadMetods.LoadMetod="LoadMetodTax">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26">TAX</TextBlock>
+            <Button Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Add" Command="{Binding AddBtnClick}"></Button>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Back" Command="{Binding BackBtnCommand}"></Button>
+        </Grid>
+
+
+
+
+        <DataGrid Grid.Row="1" Margin="20" Background="NavajoWhite" ItemsSource="{Binding taxes,Mode=OneWay}" IsReadOnly="True"
+                 x:Name="d">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Full name" Binding="{Binding Percent,Mode=OneWay}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="Expense" Binding="{Binding Expense,Mode=OneWay}" IsReadOnly="True"></DataGridTextColumn>-->
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding ElementName=d, Path=DataContext.RemoveBtnClick}" CommandParameter="{Binding}"  Content="REMOVE"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                
+                
+                
+                
+                <DataGridTemplateColumn Width="SizeToCells" IsReadOnly="False">
+            <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                            <Image Source="/BackgroundImages/Tax.png" Width="40" Height="40"/>
+                </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>
+                
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+
+    </Grid>
+</UserControl>

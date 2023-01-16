@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="FinanceManagementProject.View.AddTax"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FinanceManagementProject.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="390">
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="Cinema1" UriSource="/BackgroundImages/taxor.jpg"></BitmapImage>
+            <BitmapImage x:Key="Cinema2" UriSource="/BackgroundImages/Taxes1.jpg"></BitmapImage>
+            <BitmapImage x:Key="Cinema3" UriSource="/BackgroundImages/Tax1.jpg"></BitmapImage>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+
+    <Grid>
+
+
+
+
+        <Image Stretch="UniformToFill"
+               Source="{StaticResource Cinema1}">
+
+
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                SpeedRatio=".5"
+                                From="1"
+                                To=".5"
+                                RepeatBehavior="Forever"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                SpeedRatio=".5"
+                                From=".5"
+                                To="1"
+                                RepeatBehavior="Forever"/>
+                            <ObjectAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="Source"
+                                Duration="0:0:8"
+                                RepeatBehavior="Forever">
+                                <DiscreteObjectKeyFrame
+                                    Value="{StaticResource Cinema2}"
+                                    KeyTime="0:0:2">
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame
+                                    Value="{StaticResource Cinema3}"
+                                    KeyTime="0:0:4">
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+
+        </Image>
+
+
+
+
+
+
+
+
+        <Grid>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+
+
+
+
+
+
+            <Grid Grid.Row="1" Grid.Column="1">
+
+
+                <Grid.Background>
+                    <SolidColorBrush Color="AliceBlue" Opacity=".75"/>
+                </Grid.Background>
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontFamily="Cursive">Tax</TextBlock>
+
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="10" Text="{Binding tax1.Type}"></TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="10" Text="{Binding tax1.Expense}"></TextBox>
+
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="Cursive">Type</TextBlock>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" FontFamily="Cursive" FontSize="20">Expence</TextBlock>
+                    <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding CancelBtnClick}">Cancel</Button>
+                    <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding OkBtnClick}">Save</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
